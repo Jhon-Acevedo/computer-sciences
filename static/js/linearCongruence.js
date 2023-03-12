@@ -6,7 +6,6 @@ const exportGraph = document.getElementById("export")
 
 function saveData() {
     alert("Exporting graph to PNG");
-
 }
 
 exportGraph.addEventListener("click", () => { saveData(); });
