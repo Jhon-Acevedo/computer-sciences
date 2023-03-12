@@ -2,9 +2,47 @@
 
 {% block title %} Prueba de medias {% endblock %}
 {% block head %}
-{#    <link rel="stylesheet" href="{{ url_for('static', filename='css/mean_test.css') }}">#}
+    {#    <link rel="stylesheet" href="{{ url_for('static', filename='css/mean_test.css') }}">#}
 {% endblock %}
 
 {% block body %}
     <h1>Prueba de Medias</h1>
+    <div class="container">
+        <button class="btn btn-primary" id="midSquare">Ingresar Parametros</button>
+        <button class="btn btn-danger" id="graph"> Mostrar Grafica</button>
+        <button class="btn btn-info" id="export">Exportar datos</button>
+    </div>
+
+    <div class="modal show" id="myModalB" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ingrese los valores</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form method="POST">
+                        <div class="mb-3">
+                            <label for="seed" class="col-form-label">seed</label>
+                            <input type="number" class="form-control" id="seed" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="minimum" class="col-form-label">minimum</label>
+                            <input type="number" class="form-control" id="minimum" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="maximum" class="col-form-label">maximum</label>
+                            <input type="number" class="form-control" id="maximum" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="iterations" class="col-form-label">iterations</label>
+                            <input type="number" class="form-control" id="iterations" required>
+                        </div>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Calcular</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
