@@ -10,7 +10,7 @@ bootstrap = Bootstrap(app)
 
 
 @app.route('/')
-def main():  # put application's code here
+def main():
     return render_template('index.html')
 
 
