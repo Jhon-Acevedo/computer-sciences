@@ -26,7 +26,6 @@ def mean_square_post():
     return render_template('mean_square.html', data=data)
 
 
-
 @app.route('/linear-congruence')
 def linear_congruence():
     return render_template('linear_congruence.html')
@@ -46,7 +45,6 @@ def linear_congruence_data():
     linear = LinearCongruence(context['x0'], context['k'], context['g'], context['g'])
     datas = linear.linear_congruence(context['minimum'], context['maximum'], context['iterations'])
     return render_template('linear_congruence.html', datas=datas)
-
 
 
 if __name__ == '__main__':
