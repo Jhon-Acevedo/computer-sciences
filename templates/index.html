@@ -3,7 +3,32 @@
 {% block title %} Home {% endblock %}
 
 {% block body %}
+    <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>
+    <link href='../static/css/home.css' rel='stylesheet'>
+    <!-- ======= Banner ======= -->
     <div>
-
+        <section id="hero" class="d-flex align-items-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
+                        <h1>Generación de Números Pseudoaleatorios</h1>
+                        <div class="d-flex">
+                            <p>Es un número generado en un proceso que parece producir números al azar, pero no lo hace
+                                realmente. Las secuencias de números pseudoaleatorios no muestran ningún patrón o
+                                regularidad aparente desde un punto de vista estadístico, a pesar de haber sido
+                                generadas
+                                por un algoritmo completamente determinista.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 order-1 order-lg-2 hero-img">
+{#                        <img src="https://www.eltiempo.com/files/image_640_428/uploads/2021/12/06/61ae7abe0ad7b.jpeg"#}
+{#                             class="img-fluid animated" alt="">#}
+                        <img src="../static/img/banner1.png"
+                             class="img-fluid animated" alt="">
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
+    <!-- End Banner -->
 {% endblock %}

@@ -1,0 +1,33 @@
+body {
+    font-family: "Open Sans", sans-serif;
+    color: #414141;
+    background-color: #d1d9e8;
+}
+
+p {
+    font-size: 14px;
+    margin-top: 20px;
+    text-align: justify;
+}
+
+a:hover {
+    color: #206bfb;
+    text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Raleway", sans-serif;
+}
+
+#hero h1 {
+    margin: 0;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 56px;
+    color: #F55E3B;
+}
