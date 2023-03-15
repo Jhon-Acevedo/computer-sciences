@@ -1,3 +1,3 @@
-const modalParameters = document.getElementById("linearCongruence")
+const modalParameters = document.getElementById("Multiplicativa")
 
 modalParameters.addEventListener("click", () => {$("#myModalB").modal('show');});
