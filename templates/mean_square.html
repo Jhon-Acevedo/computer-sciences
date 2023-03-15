@@ -9,7 +9,6 @@
 {% endblock %}
 
 {% block body %}
-
     <!--Content-->
     <div class="container">
         <h1>Medios Cuadrados</h1>
@@ -17,6 +16,7 @@
             <button class="btn btn-primary" id="midSquare">Ingresar Parametros</button>
             <button class="btn btn-danger" id="graph"> Mostrar Grafica</button>
             <button class="btn btn-info" id="export">Exportar datos</button>
+            <div id="alertParameter" class="alert alert-danger" role="alert">¡Ingrese los parámetros!</div>
         </div>
         <!-- Table -->
         <div class="table-responsive">
@@ -72,7 +72,8 @@
                         </div>
                         <div class="mb-3">
                             <label for="iterations" class="col-form-label">iterations</label>
-                            <input type="number" class="form-control" id="iterations" name="iterations" required>
+                            <input type="number" class="form-control" id="iterations" name="iterations" min="1"
+                                   required>
                         </div>
                         <button type="submit" class="btn btn-primary">Calcular</button>
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
@@ -81,7 +82,7 @@
             </div>
         </div>
     </div>
-    <!--Grafica-->
+    <!--Graphic-->
     <div class="modal show" id="myModalG" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -99,6 +100,7 @@
     </div>
     <script src="{{ url_for('static', filename='js/meanSquare.js') }}"></script>
     <script>
-        const data = {{ data|safe }}
+        const data =
+        {{ data|safe }}
     </script>
 {% endblock %}
