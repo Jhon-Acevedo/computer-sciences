@@ -18,5 +18,5 @@ class NormalDistribution:
 
 
 if __name__ == "__main__":
-    normal = NormalDistribution(12, 0.5)
-    print(normal.sample())
+    normal = NormalDistribution(0.0, 1.0)
+    print(normal.sample(50))

@@ -4,6 +4,7 @@ from flask_bootstrap5 import Bootstrap
 from models.mean_square import mean_square_implementation
 from models.linear_congruence import LinearCongruence
 from models.multiplicative_congruence import MultiplicativeCongruence
+from models.normal_distribution import NormalDistribution
 
 app = Flask(__name__)
 bootstrap = Bootstrap(app)
@@ -84,6 +85,16 @@ def normal_distribution():
 @app.route('/std-normal-distribution')
 def std_normal_distribution():
     return render_template('std_normal_distribution.html')
+
+@app.route('/std-normal-distribution', methods=["POST"])
+def std_normal_distribution_post():
+    context = {
+        'mean': 0.0,
+        'std_dev': 1.0,
+        'iterations': int(request.form.get('iterations')),
+    }
+    datas = NormalDistribution(context['mean'], context['std_dev']).sample(context['iterations'])
+    return render_template('std_normal_distribution.html', datas=datas)
 
 
 

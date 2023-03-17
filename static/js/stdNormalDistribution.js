@@ -1,19 +1,20 @@
 $(document).ready(function () {
-    $('#alertParameter').hide();
+  $('#alertParameter').hide();
 });
 
 function showAlertError() {
-    $('#alertParameter').css('visibility', 'visible');
-    $('#alertParameter').fadeTo(2000, 500).slideUp(500, function () {
-        $('#alertParameter').slideUp(500);
-    });
+  $('#alertParameter').css('visibility', 'visible');
+  $('#alertParameter').fadeTo(2000, 500).slideUp(500, function () {
+      $('#alertParameter').slideUp(500);
+  });
 }
 
+console.log("std normal distribution.js")
 
-const modalParameters = document.getElementById("midSquare")
-modalParameters.addEventListener("click", () => {
-    $("#myModalB").modal('show');
-});
+const modalParameters = document.getElementById("stdNormalDistribution")
+
+modalParameters.addEventListener("click", () => {$("#myModalB").modal('show');});
+
 
 const exportFile = document.getElementById("export")
 exportFile.addEventListener("click", () => {
@@ -23,7 +24,7 @@ exportFile.addEventListener("click", () => {
         const encodedUri = encodeURI(csvContent);
         const link = document.createElement("a");
         link.setAttribute("href", encodedUri);
-        link.setAttribute("download", "mainSquare.csv");
+        link.setAttribute("download", "std_normal_dist.csv");
         document.body.appendChild(link);
         link.click();
     } catch (e) {
@@ -31,10 +32,11 @@ exportFile.addEventListener("click", () => {
     }
 });
 
+//mostar la grafica
 const graph = document.getElementById("graph")
 graph.addEventListener("click", () => {
     try {
-        const values = data.map(({0: yi, 6: xi}) => ({yi, xi}))
+        const values = data.map(({0: yi, 2: xi}) => ({yi, xi}))
         $("#myModalG").modal('show');
         const ctx = document.getElementById('myChart');
         new Chart(ctx, {
@@ -42,7 +44,7 @@ graph.addEventListener("click", () => {
             data: {
                 labels: values.map(({yi}) => yi),
                 datasets: [{
-                    label: 'Mean Square',
+                    label: 'Linear Congruence',
                     data: values.map(({xi}) => xi),
                     borderWidth: 1
                 }]
