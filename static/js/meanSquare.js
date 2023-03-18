@@ -56,6 +56,18 @@ graph.addEventListener("click", () => {
             }
         });
     } catch (e) {
-        showAlertError();
+        if (data.length === 0){
+            showAlertError();
+        }
     }
+});
+
+
+const exportGraph = document.getElementById("exportG")
+exportGraph.addEventListener("click", () => {
+    const imageLink = document.createElement("a");
+    const canvas = document.getElementById("myChart");
+    imageLink.download = "meanSquare.jpeg";
+    imageLink.href = canvas.toDataURL("image/jpg", 1).replace("image/jpg", "image/octet-stream")
+    imageLink.click();
 });

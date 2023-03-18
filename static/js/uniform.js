@@ -9,10 +9,11 @@ function showAlertError() {
     });
 }
 
-const modalParameters = document.getElementById("normal")
 
-modalParameters.addEventListener("click", () => {$("#myModalB").modal('show');});
-
+const modalParameters = document.getElementById("midSquare")
+modalParameters.addEventListener("click", () => {
+    $("#myModalB").modal('show');
+});
 
 const exportFile = document.getElementById("export")
 exportFile.addEventListener("click", () => {
@@ -22,7 +23,7 @@ exportFile.addEventListener("click", () => {
         const encodedUri = encodeURI(csvContent);
         const link = document.createElement("a");
         link.setAttribute("href", encodedUri);
-        link.setAttribute("download", "std_normal_dist.csv");
+        link.setAttribute("download", "mainSquare.csv");
         document.body.appendChild(link);
         link.click();
     } catch (e) {
@@ -30,24 +31,40 @@ exportFile.addEventListener("click", () => {
     }
 });
 
-//mostar la grafica
+let mychart = null;
+
 const graph = document.getElementById("graph")
 graph.addEventListener("click", () => {
     try {
         const values = data.map(({0: yi, 2: xi}) => ({yi, xi}))
         $("#myModalG").modal('show');
         const ctx = document.getElementById('myChart');
-        new Chart(ctx, {
+        mychart = new Chart(ctx, {
             type: 'line',
+            label: 'Uniform Distribution',
             data: {
                 labels: values.map(({yi}) => yi),
                 datasets: [{
-                    label: 'Normal Distribution',
+                    label: 'Uniform Distribution',
                     data: values.map(({xi}) => xi),
                     borderWidth: 1
                 }]
             },
             options: {
+                plugins: {
+                    zoom: {
+                        // y: {min: 0, max: 100},
+                        // zoom: {
+                        //     wheel: {
+                        //         enabled: true
+                        //     }
+                        // }
+                        modifierKey: 'shift',
+                        pan: {
+                            enabled: true,
+                        }
+                    }
+                },
                 scales: {
                     y: {
                         beginAtZero: true
@@ -58,4 +75,9 @@ graph.addEventListener("click", () => {
     } catch (e) {
         showAlertError();
     }
+});
+
+butonZoom = document.getElementById("btn-zoom")
+butonZoom.addEventListener("click", () => {
+    mychart.doZoom(10);
 });
