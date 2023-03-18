@@ -15,6 +15,3 @@ def normal_distribution(iterations, mean, std_dev):
         data[i][2] = str("{:.5f}".format(ni))
     return data
 
-
-# if __name__ == '__main__':
-    # print(normal_distribution(1000))

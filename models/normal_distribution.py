@@ -12,7 +12,7 @@ class NormalDistribution:
             r_i = random.gauss(mu=0.0, sigma=1.0)
             n_i = self.mean + self.std_dev * r_i
             data[i][0] = i + 1
-            data[i][1] = r_i
+            data[i][1] = str("{:.5f}".format(r_i))
             data[i][2] = n_i
         return data
 

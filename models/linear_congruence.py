@@ -16,7 +16,7 @@ class LinearCongruence:
             self.x0 = x_i
             data[i][0] = i + 1
             data[i][1] = x_i
-            data[i][2] = number_r_i
+            data[i][2] = str("{:.5f}".format(number_r_i))
             data[i][3] = number_n_i
         return data
 
