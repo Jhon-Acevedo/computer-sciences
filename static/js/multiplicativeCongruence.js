@@ -14,7 +14,7 @@ function showAlertError() {
 
 console.log("multiplicativeCongruence.js");
 // Para mostrar los datos en la tabla
-showParameters("Multiplicativa");
+showParameterMetodos("Multiplicativa");
 
 function showParameters(element) {
   const modalParameters = document.getElementById(element);
