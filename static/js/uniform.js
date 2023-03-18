@@ -76,8 +76,3 @@ graph.addEventListener("click", () => {
         showAlertError();
     }
 });
-
-butonZoom = document.getElementById("btn-zoom")
-butonZoom.addEventListener("click", () => {
-    mychart.doZoom(10);
-});

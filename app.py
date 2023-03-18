@@ -113,7 +113,7 @@ def std_normal_distribution_post():
 
 @app.route('/normal-distribution', methods=["POST"])
 def normal_distribution_post():
-    data = normal(int(request.form['iterations']))
+    data = normal(int(request.form['iterations']), request.form['mean'], (request.form['std']))
     return render_template('normal_distribution.html', data=data)
 
 

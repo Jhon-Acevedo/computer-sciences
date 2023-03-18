@@ -14,8 +14,8 @@
             <button class="btn btn-primary" id="normal">
                 Ingresar Parametros
             </button>
-            <button class="btn btn-danger" id="graph">Mostrar Grafica</button>
-            <button class="btn btn-success" id="export">Exportar datos</button>
+            <button class="btn btn-danger" id="graph" value="2,0">Mostrar Grafica</button>
+            <button class="btn btn-success" id="export" name="normal" value="1">Exportar datos</button>
             <div id="alertParameter" class="alert alert-danger" role="alert">
                 ¡Ingrese los parámetros!
             </div>
@@ -54,6 +54,16 @@
                 <div class="modal-body">
                     <form method="POST" action="{{ url_for('normal_distribution_post') }}">
                         <div class="mb-3">
+                            <label for="mean" class="col-form-label">Media</label>
+                            <input type="text" class="form-control" id="mean" name="mean"
+                                   required/>
+                        </div>
+                        <div class="mb-3">
+                            <label for="std" class="col-form-label">Desviación Estándar</label>
+                            <input type="text" class="form-control" id="std" name="std"
+                                   required/>
+                        </div>
+                        <div class="mb-3">
                             <label for="iterations" class="col-form-label">iterations</label>
                             <input type="number" class="form-control" id="iterations" name="iterations" value="100"
                                    min="1"
@@ -84,9 +94,15 @@
         </div>
     </div>
 
-    <script src="{{ url_for('static', filename='js/normalDistribution.js') }}"></script>
-
+    <script src="{{ url_for('static', filename='js/createGraphic.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/exportData.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/utils.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/showGraphic.js') }}"></script>
     <script>
         const data = {{data|safe}};
     </script>
+{% endblock %}
+
+{% block javvascript %}
+
 {% endblock %}
