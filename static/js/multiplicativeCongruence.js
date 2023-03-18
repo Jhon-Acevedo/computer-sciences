@@ -13,15 +13,13 @@ function showAlertError() {
 }
 
 console.log("multiplicativeCongruence.js");
-// Para mostrar los datos en la tabla
-showParameterMetodos("Multiplicativa");
 
-function showParameters(element) {
-  const modalParameters = document.getElementById(element);
+// Para mostrar los datos en la tabla
+
+const modalParameters = document.getElementById("Multiplicativa");
   modalParameters.addEventListener("click", () => {
     $("#myModalB").modal("show");
-  });
-}
+});
 
 // Exportat los datos en un archivo csv
 const exportFile = document.getElementById("export");
@@ -53,7 +51,7 @@ graph.addEventListener("click", () => {
             data: {
                 labels: values.map(({yi}) => yi),
                 datasets: [{
-                    label: 'Linear Congruence',
+                    label: 'Multiplicative Congruence',
                     data: values.map(({xi}) => xi),
                     borderWidth: 1
                 }]
