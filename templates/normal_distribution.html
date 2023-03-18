@@ -1,5 +1,5 @@
 {% extends './layout.html' %}
-{% block title %} Distribución Normal{% endblock %}
+{% block title %} Normal{% endblock %}
 {% block head %}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <link href="../static/css/square.css" rel="stylesheet"/>
@@ -11,7 +11,7 @@
     <div class="container">
         <h1>Distribución Normal</h1>
         <div class="d-grid gap-2 d-md-block">
-            <button class="btn btn-primary" id="stdNormalDistribution">
+            <button class="btn btn-primary" id="normal">
                 Ingresar Parametros
             </button>
             <button class="btn btn-danger" id="graph">Mostrar Grafica</button>
@@ -68,11 +68,11 @@
     </div>
 
     <!--Grafica-->
-    <div class="modal show" id="myModalG" role="dialog">
+    <div class="modal modal-xl show" id="myModalG" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="modalH">GRAFICA</h5>
+                    <h5 class="modal-title" id="modalH">GRÁFICA DISTRUBICIÓN NORMAL</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -84,7 +84,7 @@
         </div>
     </div>
 
-    <script src="{{ url_for('static', filename='js/stdNormalDistribution.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/normalDistribution.js') }}"></script>
 
     <script>
         const data = {{data|safe}};
