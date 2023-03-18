@@ -5,6 +5,8 @@ from models.mean_square import mean_square_implementation
 from models.linear_congruence import LinearCongruence
 from models.multiplicative_congruence import MultiplicativeCongruence
 from models.normal_distribution import NormalDistribution
+from models.uniform import uniform_distribution as uniform
+from models.normal import normal_distribution as normal
 
 app = Flask(__name__)
 bootstrap = Bootstrap(app)
@@ -68,7 +70,7 @@ def multiplicative_congruence_data():
     multiplicative = MultiplicativeCongruence(
         context['x0'], context['t'], context['g'])
     datas = multiplicative.multiplicative_congruence(
-        context['minimum'], context['maximum'], context['iterations']) 
+        context['minimum'], context['maximum'], context['iterations'])
     return render_template('multiplicative_congruence.html', datas=datas)
 
 
@@ -77,14 +79,26 @@ def uniform_distribution():
     return render_template('uniform_distribution.html')
 
 
-@app.route('/normal-distribution')
-def normal_distribution():
-    return render_template('normal_distribution.html')
+@app.route('/uniform-distribution', methods=["POST"])
+def uniform_distribution_data():
+    context = {
+        'minimum': int(request.form.get('lower_limit')),
+        'maximum': int(request.form.get('upper_limit')),
+        'iterations': int(request.form.get('iterations')),
+    }
+    data = uniform(context['minimum'], context['maximum'], context['iterations'])
+    return render_template('uniform_distribution.html', data=data)
 
 
 @app.route('/std-normal-distribution')
 def std_normal_distribution():
     return render_template('std_normal_distribution.html')
+
+
+@app.route('/normal-distribution')
+def normal_distribution():
+    return render_template('normal_distribution.html')
+
 
 @app.route('/std-normal-distribution', methods=["POST"])
 def std_normal_distribution_post():
@@ -96,6 +110,11 @@ def std_normal_distribution_post():
     datas = NormalDistribution(context['mean'], context['std_dev']).sample(context['iterations'])
     return render_template('std_normal_distribution.html', datas=datas)
 
+
+@app.route('/normal-distribution', methods=["POST"])
+def normal_distribution_post():
+    data = normal(int(request.form['iterations']))
+    return render_template('normal_distribution.html', data=data)
 
 
 if __name__ == '__main__':

@@ -31,23 +31,40 @@ exportFile.addEventListener("click", () => {
     }
 });
 
+let mychart = null;
+
 const graph = document.getElementById("graph")
 graph.addEventListener("click", () => {
     try {
-        const values = data.map(({0: yi, 6: xi}) => ({yi, xi}))
+        const values = data.map(({0: yi, 2: xi}) => ({yi, xi}))
         $("#myModalG").modal('show');
         const ctx = document.getElementById('myChart');
-        new Chart(ctx, {
+        mychart = new Chart(ctx, {
             type: 'line',
+            label: 'Uniform Distribution',
             data: {
                 labels: values.map(({yi}) => yi),
                 datasets: [{
-                    label: 'Mean Square',
+                    label: 'Uniform Distribution',
                     data: values.map(({xi}) => xi),
                     borderWidth: 1
                 }]
             },
             options: {
+                plugins: {
+                    zoom: {
+                        // y: {min: 0, max: 100},
+                        // zoom: {
+                        //     wheel: {
+                        //         enabled: true
+                        //     }
+                        // }
+                        modifierKey: 'shift',
+                        pan: {
+                            enabled: true,
+                        }
+                    }
+                },
                 scales: {
                     y: {
                         beginAtZero: true
@@ -56,18 +73,11 @@ graph.addEventListener("click", () => {
             }
         });
     } catch (e) {
-        if (data.length === 0){
-            showAlertError();
-        }
+        showAlertError();
     }
 });
 
-
-const exportGraph = document.getElementById("exportG")
-exportGraph.addEventListener("click", () => {
-    const imageLink = document.createElement("a");
-    const canvas = document.getElementById("myChart");
-    imageLink.download = "meanSquare.jpeg";
-    imageLink.href = canvas.toDataURL("image/jpg", 1).replace("image/jpg", "image/octet-stream")
-    imageLink.click();
+butonZoom = document.getElementById("btn-zoom")
+butonZoom.addEventListener("click", () => {
+    mychart.doZoom(10);
 });
