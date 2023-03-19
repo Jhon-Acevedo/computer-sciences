@@ -5,6 +5,7 @@
 {% block head %}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <link href='../static/css/square.css' rel='stylesheet'>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 {% endblock %}
 
 {% block body %}
@@ -12,9 +13,9 @@
     <div class="container">
         <h1>Distribución Uniforme</h1>
         <div class="d-grid gap-2 d-md-block">
-            <button class="btn btn-primary" id="midSquare">Ingresar Parametros</button>
-            <button class="btn btn-danger" id="graph"> Mostrar Grafica</button>
-            <button class="btn btn-success" id="export">Exportar datos</button>
+            <button class="btn btn-primary" id="btn-params">Ingresar Parametros</button>
+            <button class="btn btn-danger" id="graph" value="2,0"> Mostrar Grafica</button>
+            <button class="btn btn-success" id="export" name="uniform" value="1">Exportar datos</button>
             <div id="alertParameter" class="alert alert-danger" role="alert">¡Ingrese los parámetros!</div>
         </div>
         <!-- Table -->
@@ -85,16 +86,12 @@
             </div>
         </div>
     </div>
-    <script src="{{ url_for('static', filename='js/uniform.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/createGraphic.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/exportData.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/utils.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/showGraphic.js') }}"></script>
     <script>
         const data =
         {{ data|safe }}
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-zoom/2.0.0/chartjs-plugin-zoom.min.js" integrity="sha512-B6F98QATBNaDHSE7uANGo5h0mU6fhKCUD+SPAY7KZDxE8QgZw9rewDtNiu3mbbutYDWOKT3SPYD8qDBpG2QnEg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-zoom/2.0.0/chartjs-plugin-zoom.esm.js" integrity="sha512-tmzeeJoBr3RjR0AiCgTX0L9VPn5cnzNU3bKDFCNWZzgghB4EI/zLXynQYOmIAuiV/mO24ZQtbdQ0SFihhOY8/w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-zoom/2.0.0/chartjs-plugin-zoom.esm.min.js" integrity="sha512-eANH1HrFwquPuhajXYsU+EHM5qTTTP5PvQZVKLFu3DYutFvG7rEOvn5a8Dm2U9hTaGfseNisyTO8zEPmlZhdvw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-zoom/2.0.0/chartjs-plugin-zoom.js" integrity="sha512-5aS1DIhf9Uxh05zXvj1duqOOmSLXUKkK6Q2v2rEr8Q6fGjy1OW6FGB/wie75zxJqj++5/kMSGApg0EPJSbrYGA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js" integrity="sha512-UXumZrZNiOwnTcZSHLOfcTs0aos2MzBWHXOHOuB0J/R44QB0dwY5JgfbvljXcklVf65Gc4El6RjZ+lnwd2az2g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-{#    <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-zoom/2.0.0/chartjs-plugin-zoom.esm.js" integrity="sha512-tmzeeJoBr3RjR0AiCgTX0L9VPn5cnzNU3bKDFCNWZzgghB4EI/zLXynQYOmIAuiV/mO24ZQtbdQ0SFihhOY8/w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>#}
 {% endblock %}
