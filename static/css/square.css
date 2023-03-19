@@ -1,0 +1,13 @@
+h1 {
+    text-align: center;
+    margin: 10px 0;
+}
+
+.table {
+    margin-top: 20px;
+}
+
+#alertParameter{
+    visibility: hidden;
+    margin-top: 10px;
+}

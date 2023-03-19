@@ -21,8 +21,8 @@ def mean_square_implementation(seed, minimum, maximum, iterations):
         data[i][2] = x_i_square
         data[i][3] = square_extension
         data[i][4] = extraction
-        data[i][5] = number_ri
-        data[i][6] = number_ni
+        data[i][5] = str("{:.5f}".format(number_ri))
+        data[i][6] = str("{:.5f}".format(number_ni))
         x_i = int(extraction)
         i += 1
     return data

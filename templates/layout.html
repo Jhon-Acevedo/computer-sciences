@@ -11,37 +11,36 @@
 </head>
 
 <body>
-<nav class="navbar navbar-expand-lg bg-light">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
     <div class="container-fluid">
-        <a class="navbar-brand" href="/">Números Pseudoaleatorios</a>
+        <a class="navbar-brand" href="/">Home</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/">Inicio</a>
-                </li>
+{#                <li class="nav-item">#}
+{#                    <a class="nav-link active" aria-current="page" href="/">Inicio</a>#}
+{#                </li>#}
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url_for('mean_square') }}">Medios Cuadrados</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url_for('linear_congruence') }}">Congruencia Lineal</a>
-
                 </li>
-{#                <li class="nav-item">#}
-{#                    <a class="nav-link" href="{{ url_for('varianceTest') }}">Prueba de Varianza</a>#}
-{#                </li>#}
-{#                <li class="nav-item">#}
-{#                    <a class="nav-link" href="{{ url_for('ksTest') }}">Prueba KS</a>#}
-{#                </li>#}
-{#                <li class="nav-item">#}
-{#                    <a class="nav-link" href="{{ url_for('chiTest') }}">Prueba Chi^2</a>#}
-{#                </li>#}
-{#                <li class="nav-item">#}
-{#                    <a class="nav-link" href="{{ url_for('pokerTest') }}">Prueba de Poker</a>#}
-{#                </li>#}
+                <li class="nav-item">
+                   <a class="nav-link" href="{{ url_for('multiplicative_congruence') }}">Congruencia Multiplicativa</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('uniform_distribution') }}">Distribucion Uniforme</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('normal_distribution') }}">Distribucion Normal</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('std_normal_distribution') }}">Distribucion Normal Estandar</a>
+                </li>
             </ul>
         </div>
     </div>
