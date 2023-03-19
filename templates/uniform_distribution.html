@@ -15,7 +15,7 @@
         <div class="d-grid gap-2 d-md-block">
             <button class="btn btn-primary" id="btn-params">Ingresar Parametros</button>
             <button class="btn btn-danger" id="graph" value="2,0"> Mostrar Grafica</button>
-            <button class="btn btn-success" id="export" name="uniform" value="1">Exportar datos</button>
+            <button class="btn btn-success" id="export" name="Uniform" value="1">Exportar datos</button>
             <div id="alertParameter" class="alert alert-danger" role="alert">¡Ingrese los parámetros!</div>
         </div>
         <!-- Table -->
@@ -91,7 +91,6 @@
     <script src="{{ url_for('static', filename='js/utils.js') }}"></script>
     <script src="{{ url_for('static', filename='js/showGraphic.js') }}"></script>
     <script>
-        const data =
-        {{ data|safe }}
+        const data = {{ data|safe }}
     </script>
 {% endblock %}
