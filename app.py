@@ -46,7 +46,7 @@ def linear_congruence_data():
         'iterations': int(request.form.get('iterations')),
     }
     linear = LinearCongruence(
-        context['x0'], context['k'], context['g'], context['g'])
+        context['x0'], context['k'], context['c'], context['g'])
     datas = linear.linear_congruence(
         context['minimum'], context['maximum'], context['iterations'])
     return render_template('linear_congruence.html', datas=datas)
