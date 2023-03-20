@@ -26,3 +26,8 @@ def mean_square_implementation(seed, minimum, maximum, iterations):
         x_i = int(extraction)
         i += 1
     return data
+
+
+if __name__ == "__main__":
+    data = mean_square_implementation(1234, 1, 50, 1000)
+    print(data)

@@ -12,4 +12,5 @@ def uniform_distribution(lower_limit, upper_limit, iterations):
 
 
 if __name__ == '__main__':
-    print(uniform_distribution(0, 10, 1000))
+    data = uniform_distribution(0, 10, 1000)
+    print(data)

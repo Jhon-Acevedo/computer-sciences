@@ -78,18 +78,24 @@
                     <h5 class="modal-title" id="modalH">GRÁFICA DISTRIBUCIÓN UNIFORME</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
-                    <div>
+                <div class="modal-body" >
+                    <div id='myDiv'>
                         <canvas id="myChart"></canvas>
+                    </div>
+                    <div>
+                        <div class="container">
+                            <button class="btn btn-primary" id="exportG">Export</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <script src="{{ url_for('static', filename='js/createGraphic.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/GraphicNormal.js') }}"></script>
     <script src="{{ url_for('static', filename='js/exportData.js') }}"></script>
     <script src="{{ url_for('static', filename='js/utils.js') }}"></script>
     <script src="{{ url_for('static', filename='js/showGraphic.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/exportGraphic.js') }}"></script>
     <script>
         const data = {{ data|safe }}
     </script>

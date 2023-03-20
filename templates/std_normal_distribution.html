@@ -10,7 +10,7 @@
         <div class="d-grid gap-2 d-md-block">
             <button class="btn btn-primary" id="btn-params">Ingresar Parametros</button>
             <button class="btn btn-danger" id="graph" value="2,0">Mostrar Grafica</button>
-            <button class="btn btn-success" id="export" name="Estandar_Normal" value="1">Exportar datos</button>
+            <button class="btn btn-success" id="export" name="Normal_Estandar" value="1">Exportar datos</button>
             <div id="alertParameter" class="alert alert-danger" role="alert">
                 ¡Ingrese los parámetros!
             </div>
@@ -68,25 +68,30 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="modalH">GRÁFICA DE D. NORMAL ESTÁNDAR</h5>
+                    <h5 class="modal-title" id="modalH">GRÁFICA DE DISTRIBUCIÓN NORMAL ESTÁNDAR</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <div>
+                    <div id='myDiv'>
                         <canvas id="myChart"></canvas>
+                    </div>
+                    <div>
+                        <div class="container">
+                            <button class="btn btn-primary" id="exportG">Export</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <script src="{{ url_for('static', filename='js/createGraphic.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/GraphicNormal.js') }}"></script>
     <script src="{{ url_for('static', filename='js/exportData.js') }}"></script>
     <script src="{{ url_for('static', filename='js/utils.js') }}"></script>
     <script src="{{ url_for('static', filename='js/showGraphic.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/exportGraphic.js') }}"></script>
     <script>
         const data =
         {{datas|safe}}
-
     </script>
 {% endblock %}
