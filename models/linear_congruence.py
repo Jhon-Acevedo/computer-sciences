@@ -23,5 +23,5 @@ class LinearCongruence:
 
 if __name__ == "__main__":
     linear = LinearCongruence(1, 4, 3, 7)
-    datas = linear.linear_congruence(1, 50, 10)
-    print(datas)
+    data = linear.linear_congruence(1, 50, 1000)
+    print(data)

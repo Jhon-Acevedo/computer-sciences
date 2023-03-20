@@ -8,6 +8,13 @@ graph.addEventListener("click", () => {
 function createGraphic(xi, yi) {
     try {
         const values = data.map(({0: yi, 2: xi}) => ({yi, xi}))
+        const max = Math.max.apply(Math, values.map(function (o) {
+            return o.xi;
+        }));
+        const min = Math.min.apply(Math, values.map(function (o) {
+            return o.xi;
+        }));
+
         $("#myModalG").modal('show');
         const ctx = document.getElementById('myChart');
         const name = exportFile.getAttribute("name");
