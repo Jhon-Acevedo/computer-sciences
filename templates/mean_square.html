@@ -1,6 +1,9 @@
 {% extends './layout.html' %}
 
-{% block title %} Cuadrados Medios {% endblock %}
+{% block title %}
+    Cuadrados Medios
+
+{% endblock %}
 
 {% block head %}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
@@ -13,9 +16,9 @@
     <div class="container">
         <h1>Medios Cuadrados</h1>
         <div class="d-grid gap-2 d-md-block">
-            <button class="btn btn-primary" id="midSquare">Ingresar Parametros</button>
-            <button class="btn btn-danger" id="graph"> Mostrar Grafica</button>
-            <button class="btn btn-success" id="export">Exportar datos</button>
+            <button class="btn btn-primary" id="btn-params">Ingresar Parametros</button>
+            <button class="btn btn-danger" id="graph" value="6,0"> Mostrar Grafica</button>
+            <button class="btn btn-success" id="export" name="Cuadrados Medios" value="5">Exportar datos</button>
             <div id="alertParameter" class="alert alert-danger" role="alert">¡Ingrese los parámetros!</div>
         </div>
         <!-- Table -->
@@ -60,19 +63,20 @@
                     <form method="POST" action="{{ url_for('mean_square_post') }}">
                         <div class="mb-3">
                             <label for="seed" class="col-form-label">Semilla</label>
-                            <input type="number" class="form-control" id="seed" name="seed" required>
+                            <input type="number" class="form-control" id="seed" name="seed" value="2024" required>
                         </div>
                         <div class="mb-3">
                             <label for="minimum" class="col-form-label">Mínimo</label>
-                            <input type="number" class="form-control" id="minimum" name="minimum" required>
+                            <input type="number" class="form-control" id="minimum" name="minimum" value="1" required>
                         </div>
                         <div class="mb-3">
                             <label for="maximum" class="col-form-label">Máximo</label>
-                            <input type="number" class="form-control" id="maximum" name="maximum" required>
+                            <input type="number" class="form-control" id="maximum" name="maximum" value="100" required>
                         </div>
                         <div class="mb-3">
                             <label for="iterations" class="col-form-label">Iteraciones</label>
                             <input type="number" class="form-control" id="iterations" name="iterations" min="1"
+                                   value="100"
                                    required>
                         </div>
                         <button type="submit" class="btn btn-primary">Calcular</button>
@@ -103,7 +107,11 @@
             </div>
         </div>
     </div>
-    <script src="{{ url_for('static', filename='js/meanSquare.js') }}"></script>
+    {#    <script src="{{ url_for('static', filename='js/meanSquare.js') }}"></script>#}
+    <script src="{{ url_for('static', filename='js/GraphicNormal.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/exportData.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/utils.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/showGraphic.js') }}"></script>
     <script>
         const data = {{ data|safe }};
     </script>

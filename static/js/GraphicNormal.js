@@ -6,7 +6,9 @@ graph.addEventListener("click", () => {
     createGraphicNormal(xi, yi);
     const iterations = data.length;
     const interval = [];
-    if (iterations < 1000) {
+    const name = exportFile.getAttribute("name");
+    console.log(name);
+    if (iterations < 1000 || name === "Cuadrados Medios") {
         createInterval(interval, 10);
         createGraphicNormal(xi, yi, interval);
     } else {
